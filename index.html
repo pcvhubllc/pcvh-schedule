@@ -23,9 +23,15 @@
 
     <!-- Third-Party Assets -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    iframe {
+      filter: invert(1) hue-rotate(180deg);
+      mix-blend-mode: screen;
+    }
+    </style>
 </head>
 
-<body class="bg-slate-900 text-[#ac9c4c] flex flex-col min-h-screen">
+<body class="bg-[#090e1bfb] text-[#ac9c4c] flex flex-col min-h-screen">
 
     <!-- Logo/Branding -->
     <header class="bg-slate-950/75 border-b border-teal-400 py-4 px-[5%] flex justify-between items-center shadow-sm">
@@ -34,22 +40,23 @@
             <span class="font-bold text-xl text-teal-500/85 tracking-tight">PCV <span class="text-[#ac9c4c]">Hub</span></span>
         </div>
         <nav>
-            <a href="https://pcvhub.com" class="text-sm font-medium text-slate-600 hover:text-teal-400/80 transition">Go to PCVH Homepage</a>
+            <a href="https://pcvhub.com" class="text-sm font-medium text-slate-500 hover:text-teal-400/80 transition">Go to PCVH Homepage</a>
         </nav>
     </header>
 
     <!-- Calendar iframe -->
     <main class="flex-grow px-[5%] py-6">
-        <div class="w-full h-[75vh] bg-white rounded-xl shadow-md border border-teal-200/85 overflow-hidden grid grid-cols-1 grid-rows-1">
+        <div class="w-full h-[75vh] bg-[#020617] rounded-xl shadow-md border border-teal-200/85 overflow-hidden grid grid-cols-1 grid-rows-1">
 
-            <div class="col-start-1 row-start-1 bg-white flex flex-col items-center justify-center z-10">
-                <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600 mb-2"></div>
-                <p class="text-xs text-slate-400 font-medium animate-pulse">Loading calendar integration...</p>
+            <div class="col-start-1 row-start-1 bg-[#020617] flex flex-col items-center justify-center z-10">
+                <div id="calendar-spinner" class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600 mb-2"></div>
+                <p id="calendar-loading" class="text-xs text-slate-400 font-medium animate-pulse">Loading calendar integration...</p>
             </div>
 
             <iframe
                 src="https://calendar.google.com/calendar/appointments/AcZssZ1TFkLMx2NgLe1R-8Jk-vpEywYgvXvfpknw1cM="
-                class="w-full h-full border-none col-start-1 row-start-1 z-20 bg-white">
+                class="w-full h-full border-none col-start-1 row-start-1 z-20 bg-white"
+                onload="document.getElementById('calendar-spinner').remove(); document.getElementById('calendar-loading').remove();">
             </iframe>
 
         </div>
