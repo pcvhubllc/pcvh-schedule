@@ -44,8 +44,20 @@
         </nav>
     </header>
 
+    <button
+      onclick="document.getElementById('booking-iframe').src = document.getElementById('booking-iframe').src"
+      style="
+        background: transparent;
+        color: #ac9c4c;
+        padding: 6px 16px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        "
+    >
+      ← Start Over
+    </button>
     <!-- Calendar iframe -->
-    <main class="flex-grow px-[5%] py-6">
+    <main class="flex-grow px-[5%] py-4">
         <div class="w-full h-[75vh] bg-[#020617] rounded-xl shadow-md border border-teal-200/85 overflow-hidden grid grid-cols-1 grid-rows-1">
 
             <div class="col-start-1 row-start-1 bg-[#020617] flex flex-col items-center justify-center z-10">
@@ -54,6 +66,7 @@
             </div>
 
             <iframe
+                id="booking-iframe"
                 src="https://calendar.google.com/calendar/appointments/AcZssZ1TFkLMx2NgLe1R-8Jk-vpEywYgvXvfpknw1cM="
                 class="w-full h-full border-none col-start-1 row-start-1 z-20 bg-white"
                 onload="document.getElementById('calendar-spinner').remove(); document.getElementById('calendar-loading').remove();">
